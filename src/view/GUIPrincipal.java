@@ -17,6 +17,7 @@ public class GUIPrincipal extends javax.swing.JFrame implements InternalFrameLis
     private boolean flagGUIProprietario = false;
     private boolean flagGUIRegistroUsuario = false;
     private boolean flagGUIRegistroProprietario = false;
+    private boolean flagGUIRegistroQuadra = false;
     /**
      * Creates new form GUIPrincipal
      */
@@ -42,6 +43,7 @@ public class GUIPrincipal extends javax.swing.JFrame implements InternalFrameLis
         s = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu Principal");
@@ -128,6 +130,19 @@ public class GUIPrincipal extends javax.swing.JFrame implements InternalFrameLis
         });
         s.add(jMenuItem2);
 
+        jMenuItem3.setText("Registro de Quadra");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenuItem3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jMenuItem3KeyPressed(evt);
+            }
+        });
+        s.add(jMenuItem3);
+
         jMenuBar1.add(s);
 
         setJMenuBar(jMenuBar1);
@@ -191,6 +206,16 @@ public class GUIPrincipal extends javax.swing.JFrame implements InternalFrameLis
             abrirGUIProprietario();
         }
     }//GEN-LAST:event_jbtnProprietarioKeyPressed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        abrirGUIQuadra();
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jMenuItem3KeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            abrirGUIQuadra();
+        }
+    }//GEN-LAST:event_jMenuItem3KeyPressed
 
     
     
@@ -261,6 +286,23 @@ public class GUIPrincipal extends javax.swing.JFrame implements InternalFrameLis
         }
     }
     
+    private void abrirGUIQuadra() {
+       
+        if(!flagGUIRegistroQuadra){
+            GUIRegistroQuadra gq = new GUIRegistroQuadra();
+
+        
+            jdpAreaDeTrabalho.add(gq);
+
+        
+             gq.setVisible(true);
+             
+             flagGUIRegistroQuadra = true;
+             
+             gq.addInternalFrameListener(this);
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -302,6 +344,7 @@ public class GUIPrincipal extends javax.swing.JFrame implements InternalFrameLis
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jbtnProprietario;
     private javax.swing.JMenuItem jbtnUsuario;
     private javax.swing.JDesktopPane jdpAreaDeTrabalho;
@@ -315,14 +358,16 @@ public class GUIPrincipal extends javax.swing.JFrame implements InternalFrameLis
 
     @Override
     public void internalFrameClosing(InternalFrameEvent ife) {
-        if (ife.getInternalFrame() instanceof GUIMenuUsuario){
-            flagGUIusuario = false;
-        } else if (ife.getInternalFrame() instanceof GUIRegistroUsuario){
-            flagGUIRegistroUsuario = false;
-        } else if (ife.getInternalFrame() instanceof GUIRegistroProprietario){
-            flagGUIRegistroProprietario = false;
-        } else if (ife.getInternalFrame() instanceof GUIMenuProprietario){
-            flagGUIProprietario = false;
+            if (ife.getInternalFrame() instanceof GUIMenuUsuario){
+                flagGUIusuario = false;
+            } else if (ife.getInternalFrame() instanceof GUIRegistroUsuario){
+                flagGUIRegistroUsuario = false;
+            } else if (ife.getInternalFrame() instanceof GUIRegistroProprietario){
+                flagGUIRegistroProprietario = false;
+            } else if (ife.getInternalFrame() instanceof GUIMenuProprietario){
+                flagGUIProprietario = false;
+            }  else if (ife.getInternalFrame() instanceof GUIRegistroQuadra){
+                flagGUIRegistroQuadra = false;
         }
     }
 

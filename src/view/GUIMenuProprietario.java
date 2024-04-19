@@ -9,7 +9,8 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.ProprietarioVO;
 import modelo.UsuarioVO;
-import servicos.AlteracaoServicos;
+import servicos.ProprietarioServicos;
+import servicos.UsuarioServicos;
 import servicos.ServicosFactory;
 
 /**
@@ -393,7 +394,7 @@ public class GUIMenuProprietario extends javax.swing.JInternalFrame {
 
     private void preencherTabelaRegistro(){
         try{
-            AlteracaoServicos as = ServicosFactory.getAlteracaoServicos();
+            ProprietarioServicos as = ServicosFactory.getProprietarioServicos();
             
             ArrayList<ProprietarioVO> reg = new ArrayList<>();
             
@@ -433,7 +434,7 @@ public class GUIMenuProprietario extends javax.swing.JInternalFrame {
                     null,
                     "Por favor selecione uma linha!");
             }else{
-                AlteracaoServicos as = ServicosFactory.getAlteracaoServicos();
+                ProprietarioServicos as = ServicosFactory.getProprietarioServicos();
                 String codProprietario = (String) jtProprietario.getValueAt(linha, 0);
                 as.deletarProprietario(Long.parseLong(codProprietario));
                 
@@ -489,7 +490,7 @@ public class GUIMenuProprietario extends javax.swing.JInternalFrame {
                 pVO.setCnpj(jtCnpj.getText());
                 pVO.setSenha(jtSenha.getText());
                                 
-                AlteracaoServicos as = ServicosFactory.getAlteracaoServicos();
+                ProprietarioServicos as = ServicosFactory.getProprietarioServicos();
                 as.alterarProprietario(pVO);
                 
                 JOptionPane.showMessageDialog(

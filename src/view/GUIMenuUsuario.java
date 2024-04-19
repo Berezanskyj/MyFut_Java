@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.UsuarioVO;
-import servicos.AlteracaoServicos;
+import servicos.UsuarioServicos;
 import servicos.ServicosFactory;
 
 /**
@@ -310,7 +310,7 @@ public class GUIMenuUsuario extends javax.swing.JInternalFrame {
 
     private void preencherTabelaRegistro(){
         try{
-            AlteracaoServicos as = ServicosFactory.getAlteracaoServicos();
+            UsuarioServicos as = ServicosFactory.getAlteracaoServicos();
             
             ArrayList<UsuarioVO> reg = new ArrayList<>();
             
@@ -350,7 +350,7 @@ public class GUIMenuUsuario extends javax.swing.JInternalFrame {
                     null,
                     "Por favor selecione uma linha!");
             }else{
-                AlteracaoServicos as = ServicosFactory.getAlteracaoServicos();
+                UsuarioServicos as = ServicosFactory.getAlteracaoServicos();
                 String codUsuario = (String) jtUsuario.getValueAt(linha, 0);
                 as.deletarUsuario(Long.parseLong(codUsuario));
                 
@@ -406,7 +406,7 @@ public class GUIMenuUsuario extends javax.swing.JInternalFrame {
                 cVO.setCpf(jtCpf.getText());
                 cVO.setSenha(jtSenha.getText());
                                 
-                AlteracaoServicos as = ServicosFactory.getAlteracaoServicos();
+                UsuarioServicos as = ServicosFactory.getAlteracaoServicos();
                 as.alterarUsuario(cVO);
                 
                 JOptionPane.showMessageDialog(

@@ -8,7 +8,7 @@ package view;
 import javax.swing.JOptionPane;
 import modelo.UsuarioVO;
 import modelo.LoginVO;
-import servicos.AlteracaoServicos;
+import servicos.UsuarioServicos;
 import servicos.LoginServicos;
 
 /**
@@ -56,7 +56,7 @@ public class GUICadastro extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(138, 117, 53));
         jLabel5.setText("LOGIN");
 
-        jtfLogin.setBackground(new java.awt.Color(204, 204, 204));
+        jtfLogin.setBackground(new java.awt.Color(217, 217, 217));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/malandrinho 1.png"))); // NOI18N
 

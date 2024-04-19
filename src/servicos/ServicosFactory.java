@@ -9,15 +9,25 @@ package servicos;
  * @author berez
  */
 public class ServicosFactory {
-    private static AlteracaoServicos alteracaoServicos = new AlteracaoServicos();
+    private static UsuarioServicos alteracaoServicos = new UsuarioServicos();
     private static LoginServicos loginServicos = new LoginServicos();
+    private static ProprietarioServicos proprietarioServicos = new ProprietarioServicos();
+    private static QuadraServicos quadraServicos = new QuadraServicos();
        
-        public static AlteracaoServicos getAlteracaoServicos(){
+        public static UsuarioServicos getAlteracaoServicos(){
         return alteracaoServicos;
     }//fim do método getProdutoServicos
         
         public static LoginServicos getLoginServicos(){
             return loginServicos;
+        }
+        
+        public static ProprietarioServicos getProprietarioServicos(){
+            return proprietarioServicos;
+        }
+        
+        public static QuadraServicos getQuadraServicos(){
+            return quadraServicos;
         }
     
    

@@ -11,17 +11,27 @@ package dao;
 public class DAOFactory {
     
     //Instanciando o objeto a classe ProdutoDAO
-    private static AlteracaoDAO alteracaoDAO = new AlteracaoDAO();
+    private static UsuarioDAO alteracaoDAO = new UsuarioDAO();
     private static LoginDAO loginDAO = new LoginDAO();
+    private static ProprietarioDAO proprietarioDAO = new ProprietarioDAO();
+    private static QuadraDAO quadraDAO = new QuadraDAO();
     
     //Fazendo uma cópia dos métodos da classe ProdutoDAO e 
     //disponibilizar para a classe que solicitar
-    public static AlteracaoDAO getAlteracaoDAO(){
+    public static UsuarioDAO getAlteracaoDAO(){
         return alteracaoDAO;
     }//fim do método getAlteracaoDAO
     
     public static LoginDAO getLoginDAO(){
         return loginDAO;
+    }
+    
+    public static ProprietarioDAO getProprietarioDAO(){
+        return proprietarioDAO;
+    }
+    
+    public static QuadraDAO getQuadraDAO(){
+        return quadraDAO;
     }
     
 }//fecha a classe DAOFactory

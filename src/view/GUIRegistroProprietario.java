@@ -8,7 +8,8 @@ package view;
 import javax.swing.JOptionPane;
 import modelo.ProprietarioVO;
 import modelo.UsuarioVO;
-import servicos.AlteracaoServicos;
+import servicos.ProprietarioServicos;
+import servicos.UsuarioServicos;
 
 /**
  *
@@ -36,7 +37,6 @@ public class GUIRegistroProprietario extends javax.swing.JInternalFrame {
         telefone = new javax.swing.JTextField();
         nome = new javax.swing.JTextField();
         cnpj = new javax.swing.JTextField();
-        senha = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         cancela = new javax.swing.JButton();
         registra = new javax.swing.JButton();
@@ -47,6 +47,7 @@ public class GUIRegistroProprietario extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        senha = new javax.swing.JPasswordField();
 
         setBackground(new java.awt.Color(240, 228, 206));
         setClosable(true);
@@ -60,8 +61,6 @@ public class GUIRegistroProprietario extends javax.swing.JInternalFrame {
         nome.setBackground(new java.awt.Color(217, 217, 217));
 
         cnpj.setBackground(new java.awt.Color(217, 217, 217));
-
-        senha.setBackground(new java.awt.Color(217, 217, 217));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/malandrinho 1.png"))); // NOI18N
 
@@ -103,6 +102,13 @@ public class GUIRegistroProprietario extends javax.swing.JInternalFrame {
         jLabel6.setForeground(new java.awt.Color(138, 117, 53));
         jLabel6.setText("CNPJ");
 
+        senha.setBackground(new java.awt.Color(217, 217, 217));
+        senha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                senhaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -123,11 +129,11 @@ public class GUIRegistroProprietario extends javax.swing.JInternalFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(senha, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cnpj, javax.swing.GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE)
                                     .addComponent(jLabel7)
-                                    .addComponent(jLabel6))
+                                    .addComponent(jLabel6)
+                                    .addComponent(senha))
                                 .addGap(28, 28, 28))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(43, 43, 43)
@@ -138,12 +144,12 @@ public class GUIRegistroProprietario extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(241, 241, 241)
                         .addComponent(registra, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(95, 95, 95)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cancela, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(462, 462, 462)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(296, Short.MAX_VALUE))
+                .addContainerGap(381, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,9 +177,9 @@ public class GUIRegistroProprietario extends javax.swing.JInternalFrame {
                         .addComponent(cnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel7)
-                        .addGap(4, 4, 4)
-                        .addComponent(senha, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(senha, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -204,6 +210,10 @@ public class GUIRegistroProprietario extends javax.swing.JInternalFrame {
         dispose();
     }//GEN-LAST:event_cancelaActionPerformed
 
+    private void senhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_senhaActionPerformed
+
 
     private void cadastrar(){
         try{
@@ -227,7 +237,7 @@ public class GUIRegistroProprietario extends javax.swing.JInternalFrame {
             pVO.setSenha(senha.getText());
             
             
-            AlteracaoServicos as = servicos.ServicosFactory.getAlteracaoServicos();
+            ProprietarioServicos as = servicos.ServicosFactory.getProprietarioServicos();
             
             as.cadastrarProprietario(pVO);
             
@@ -261,7 +271,7 @@ public class GUIRegistroProprietario extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nome;
     private javax.swing.JButton registra;
-    private javax.swing.JTextField senha;
+    private javax.swing.JPasswordField senha;
     private javax.swing.JTextField telefone;
     // End of variables declaration//GEN-END:variables
 }
