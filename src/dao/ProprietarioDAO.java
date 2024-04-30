@@ -23,7 +23,7 @@ public class ProprietarioDAO {
         Connection con = new ConexaoBanco().getConexao();
         
         try{
-            String sql = "INSERT INTO registro_proprietario VALUES (null, ?,?,?,?,?)";
+            String sql = "INSERT INTO registro_proprietario VALUES (null, ?,?,?,?,?,?)";
             
             PreparedStatement pstm = con.prepareStatement(sql);
             pstm.setString(1, pVO.getNome());
@@ -31,6 +31,9 @@ public class ProprietarioDAO {
             pstm.setString(3, pVO.getEmail());
             pstm.setString(4, pVO.getCnpj());
             pstm.setString(5, pVO.getSenha());
+            pstm.setString(6, pVO.getUsuario());
+            
+            
             
             
             pstm.execute();
@@ -39,6 +42,30 @@ public class ProprietarioDAO {
             
         } catch (SQLException se){
             throw new SQLException("Erro no cadastro do registro!" + se.getMessage());
+            
+        } finally {
+            con.close();
+        }
+    }
+    
+    public void cadastrarLoginProprietario(ProprietarioVO pVO) throws SQLException{
+        Connection con = new ConexaoBanco().getConexao();
+        
+        try{
+            String sql = "INSERT INTO login VALUES (null, ?,?)";
+            
+            PreparedStatement pstm = con.prepareStatement(sql);
+
+            pstm.setString(1, pVO.getSenha());
+            pstm.setString(2, pVO.getUsuario());
+                                   
+            
+            pstm.execute();
+            pstm.close();
+            
+            
+        } catch (SQLException se){
+            throw new SQLException("Erro ao inserir Login!" + se.getMessage());
             
         } finally {
             con.close();

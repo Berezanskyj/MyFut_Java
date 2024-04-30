@@ -40,16 +40,22 @@ public class GUILogin extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jbtnLogar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jtfSenha = new javax.swing.JTextField();
         jtfLogin = new javax.swing.JTextField();
         jbtnRegistro = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jbtnRegistro1 = new javax.swing.JButton();
+        jtfSenha = new javax.swing.JPasswordField();
+        jcbMostrarSenha = new javax.swing.JCheckBox();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
+        setUndecorated(true);
+        setResizable(false);
 
         jdpAreaDeTrabalho.setBackground(new java.awt.Color(240, 228, 206));
+        jdpAreaDeTrabalho.setEnabled(false);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/malandrinho 1.png"))); // NOI18N
 
@@ -69,8 +75,6 @@ public class GUILogin extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo-removebg 1.png"))); // NOI18N
         jLabel2.setText("jLabel2");
-
-        jtfSenha.setBackground(new java.awt.Color(217, 217, 217));
 
         jtfLogin.setBackground(new java.awt.Color(217, 217, 217));
 
@@ -98,36 +102,62 @@ public class GUILogin extends javax.swing.JFrame {
             }
         });
 
+        jtfSenha.setBackground(new java.awt.Color(217, 217, 217));
+
+        jcbMostrarSenha.setBackground(new java.awt.Color(240, 228, 206));
+        jcbMostrarSenha.setText("Mostrar Senha");
+        jcbMostrarSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbMostrarSenhaActionPerformed(evt);
+            }
+        });
+
+        jButton1.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 36)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 0, 51));
+        jButton1.setText("X");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jdpAreaDeTrabalhoLayout = new javax.swing.GroupLayout(jdpAreaDeTrabalho);
         jdpAreaDeTrabalho.setLayout(jdpAreaDeTrabalhoLayout);
         jdpAreaDeTrabalhoLayout.setHorizontalGroup(
             jdpAreaDeTrabalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jdpAreaDeTrabalhoLayout.createSequentialGroup()
-                .addContainerGap(271, Short.MAX_VALUE)
-                .addGroup(jdpAreaDeTrabalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jdpAreaDeTrabalhoLayout.createSequentialGroup()
-                        .addGap(74, 74, 74)
-                        .addGroup(jdpAreaDeTrabalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jtfLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jdpAreaDeTrabalhoLayout.createSequentialGroup()
-                                .addComponent(jtfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jbtnRegistro1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(262, Short.MAX_VALUE)
+                .addGroup(jdpAreaDeTrabalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jdpAreaDeTrabalhoLayout.createSequentialGroup()
                         .addComponent(jbtnLogar, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(70, 70, 70)
-                        .addComponent(jbtnRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 485, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(218, 218, 218))
+                        .addComponent(jbtnRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(218, 218, 218))
+                    .addGroup(jdpAreaDeTrabalhoLayout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addGroup(jdpAreaDeTrabalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 485, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jdpAreaDeTrabalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jtfLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel5)
+                                .addComponent(jLabel4)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jdpAreaDeTrabalhoLayout.createSequentialGroup()
+                                    .addComponent(jtfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jbtnRegistro1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jcbMostrarSenha)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addGap(41, 41, 41))))
         );
         jdpAreaDeTrabalhoLayout.setVerticalGroup(
             jdpAreaDeTrabalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jdpAreaDeTrabalhoLayout.createSequentialGroup()
                 .addGap(36, 36, 36)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jdpAreaDeTrabalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
                 .addGap(70, 70, 70)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -136,9 +166,11 @@ public class GUILogin extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jdpAreaDeTrabalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbtnRegistro1))
-                .addGap(42, 42, 42)
+                    .addComponent(jbtnRegistro1)
+                    .addComponent(jtfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addComponent(jcbMostrarSenha)
+                .addGap(18, 18, 18)
                 .addGroup(jdpAreaDeTrabalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbtnLogar, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbtnRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -151,7 +183,7 @@ public class GUILogin extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jdpAreaDeTrabalho, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jdpAreaDeTrabalho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,12 +191,17 @@ public class GUILogin extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     
         
     private void logar(){
-        try {
+        
+        if (jtfLogin.getText().isEmpty() || jtfSenha.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos", "Erro!", JOptionPane.ERROR_MESSAGE);
+        } else {
+            try {
             
             LoginVO lVO = new LoginVO();
             lVO.setLogin(jtfLogin.getText() );
@@ -191,7 +228,10 @@ public class GUILogin extends javax.swing.JFrame {
                     "Erro! GUILogin" + se.getMessage(),
                     "Erro",
                     JOptionPane.ERROR_MESSAGE);
+            }
         }
+        
+        
     }//fim do método Logar
     
     private void cadastrar(){
@@ -218,6 +258,18 @@ public class GUILogin extends javax.swing.JFrame {
     private void jbtnRegistro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnRegistro1ActionPerformed
        cadastrar();
     }//GEN-LAST:event_jbtnRegistro1ActionPerformed
+
+    private void jcbMostrarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbMostrarSenhaActionPerformed
+        if(jcbMostrarSenha.isSelected()){
+            jtfSenha.setEchoChar((char)0);
+        } else {
+            jtfSenha.setEchoChar('*');
+        }
+    }//GEN-LAST:event_jcbMostrarSenhaActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -256,6 +308,7 @@ public class GUILogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
@@ -263,9 +316,10 @@ public class GUILogin extends javax.swing.JFrame {
     private javax.swing.JButton jbtnLogar;
     private javax.swing.JButton jbtnRegistro;
     private javax.swing.JButton jbtnRegistro1;
+    private javax.swing.JCheckBox jcbMostrarSenha;
     private javax.swing.JPanel jdpAreaDeTrabalho;
     private javax.swing.JTextField jtfLogin;
-    private javax.swing.JTextField jtfSenha;
+    private javax.swing.JPasswordField jtfSenha;
     // End of variables declaration//GEN-END:variables
 
 }

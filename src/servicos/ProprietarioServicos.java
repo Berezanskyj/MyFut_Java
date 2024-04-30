@@ -21,6 +21,11 @@ public class ProprietarioServicos {
         cDAO.cadastrarProprietario(pVO);
     }//fim do métoso cadastrarProduto
     
+    public void cadastrarLoginProprietario(ProprietarioVO pVO) throws SQLException {
+        ProprietarioDAO pDAO = DAOFactory.getProprietarioDAO();
+        pDAO.cadastrarLoginProprietario(pVO);
+    }
+    
     public ArrayList<ProprietarioVO> buscarProprietario() throws SQLException{
         ProprietarioDAO cDAO = DAOFactory.getProprietarioDAO();
         return cDAO.buscarProprietario();

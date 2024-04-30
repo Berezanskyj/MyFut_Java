@@ -23,6 +23,12 @@ public class UsuarioServicos {
         cDAO.cadastrarUsuario(cVO);
     }//fim do métoso cadastrarProduto
     
+    public void cadastrarUsuarioLogin(UsuarioVO cVO) throws SQLException {
+        UsuarioDAO cDAO = DAOFactory.getAlteracaoDAO();
+        cDAO.cadastrarUsuarioLogin(cVO);
+    }//fim do métoso cadastrarProduto
+
+    
     public ArrayList<UsuarioVO> buscarUsuario() throws SQLException{
         UsuarioDAO cDAO = DAOFactory.getAlteracaoDAO();
         return cDAO.buscarUsuario();

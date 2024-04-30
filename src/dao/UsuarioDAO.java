@@ -25,7 +25,7 @@ public class UsuarioDAO {
         Connection con = new ConexaoBanco().getConexao();
         
         try{
-            String sql = "INSERT INTO registro_usuario VALUES (null, ?,?,?,?,?)";
+            String sql = "INSERT INTO registro_usuario VALUES (null, ?,?,?,?,?,?)";
             
             PreparedStatement pstm = con.prepareStatement(sql);
             pstm.setString(1, cVO.getNome());
@@ -33,6 +33,7 @@ public class UsuarioDAO {
             pstm.setString(3, cVO.getEmail());
             pstm.setString(4, cVO.getCpf());
             pstm.setString(5, cVO.getSenha());
+            pstm.setString(6, cVO.getUsuario());
             
             
             pstm.execute();
@@ -41,6 +42,29 @@ public class UsuarioDAO {
             
         } catch (SQLException se){
             throw new SQLException("Erro no cadastro do registro!" + se.getMessage());
+            
+        } finally {
+            con.close();
+        }
+    }
+    
+    public void cadastrarUsuarioLogin(UsuarioVO cVO) throws SQLException {
+        Connection con = new ConexaoBanco().getConexao();
+        
+        try{
+            String sql = "INSERT INTO login VALUES (null, ?,?)";
+            
+            PreparedStatement pstm = con.prepareStatement(sql);
+            
+            pstm.setString(1, cVO.getSenha());
+            pstm.setString(2, cVO.getUsuario());
+            
+            pstm.execute();
+            pstm.close();
+            
+            
+        } catch (SQLException se){
+            throw new SQLException("Erro no cadastro do registro LOGIn!" + se.getMessage());
             
         } finally {
             con.close();

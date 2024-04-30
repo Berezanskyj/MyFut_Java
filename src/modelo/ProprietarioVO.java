@@ -11,7 +11,7 @@ package modelo;
  */
 public class ProprietarioVO {
     
-    private long idproprietario;
+    
 
     public long getIdproprietario() {
         return idproprietario;
@@ -68,12 +68,25 @@ public class ProprietarioVO {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+    
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+    
+    private long idproprietario;
     private String nome;
     private String sobrenome;
     private String telefone;
     private String email;
     private String cnpj;
     private String senha;
+    private String usuario;
+
+    
     
     
 }

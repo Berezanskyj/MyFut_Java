@@ -16,6 +16,7 @@ public class UsuarioVO {
     private String email;
     private String cpf;
     private String senha;
+    private String usuario;
 
     public long getIdusuario() {
         return idusuario;
@@ -63,6 +64,14 @@ public class UsuarioVO {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
     
 }

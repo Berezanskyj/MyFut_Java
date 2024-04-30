@@ -165,6 +165,7 @@ public class GUIPrincipal extends javax.swing.JFrame implements InternalFrameLis
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtnUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnUsuarioActionPerformed
