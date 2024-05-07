@@ -15,6 +15,7 @@ public class DAOFactory {
     private static LoginDAO loginDAO = new LoginDAO();
     private static ProprietarioDAO proprietarioDAO = new ProprietarioDAO();
     private static QuadraDAO quadraDAO = new QuadraDAO();
+    private static PartidaDAO partidaDAO = new PartidaDAO();
     
     //Fazendo uma cópia dos métodos da classe ProdutoDAO e 
     //disponibilizar para a classe que solicitar
@@ -32,6 +33,10 @@ public class DAOFactory {
     
     public static QuadraDAO getQuadraDAO(){
         return quadraDAO;
+    }
+    
+    public static PartidaDAO getPartidaDAO(){
+        return partidaDAO;
     }
     
 }//fecha a classe DAOFactory

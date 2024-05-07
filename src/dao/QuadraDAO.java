@@ -20,7 +20,7 @@ public class QuadraDAO {
         Connection con = new ConexaoBanco().getConexao();
         
         try{
-            String sql = "INSERT INTO registro_quadra VALUES (null, ?,?,?,?,?,?)";
+            String sql = "INSERT INTO registro_quadra VALUES (null, ?,?,?,?,?,?, ?)";
             
             PreparedStatement pstm = con.prepareStatement(sql);
             pstm.setString(1, qVO.getNome_responsavel());
@@ -29,6 +29,7 @@ public class QuadraDAO {
             pstm.setString(4, qVO.getCnpj_responsavel());
             pstm.setInt(5, qVO.getMax_jogadores());
             pstm.setInt(6, qVO.getNumero_quadra());
+            pstm.setString(7, qVO.getNomeEstabelecimento());
             
             
             pstm.execute();

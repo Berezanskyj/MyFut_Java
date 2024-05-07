@@ -17,6 +17,15 @@ public class QuadraVO {
     private String cnpj_responsavel;
     private int max_jogadores;
     private int numero_quadra;
+    private String nomeEstabelecimento;
+
+    public String getNomeEstabelecimento() {
+        return nomeEstabelecimento;
+    }
+
+    public void setNomeEstabelecimento(String nomeEstabelecimento) {
+        this.nomeEstabelecimento = nomeEstabelecimento;
+    }
 
     public int getIdquadra() {
         return idquadra;

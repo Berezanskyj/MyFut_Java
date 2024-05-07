@@ -13,6 +13,7 @@ public class ServicosFactory {
     private static LoginServicos loginServicos = new LoginServicos();
     private static ProprietarioServicos proprietarioServicos = new ProprietarioServicos();
     private static QuadraServicos quadraServicos = new QuadraServicos();
+    private static PartidaServicos partidaServicos = new PartidaServicos();
        
         public static UsuarioServicos getAlteracaoServicos(){
         return alteracaoServicos;
@@ -28,6 +29,10 @@ public class ServicosFactory {
         
         public static QuadraServicos getQuadraServicos(){
             return quadraServicos;
+        }
+        
+        public static PartidaServicos getPartidaServicos(){
+            return partidaServicos;
         }
     
    

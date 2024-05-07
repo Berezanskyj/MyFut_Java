@@ -268,8 +268,8 @@ public class GUIRegistroUsuario extends javax.swing.JInternalFrame {
             cVO.setTelefone(telefone.getText());
             cVO.setEmail(email.getText());
             cVO.setCpf(telefone.getText());
-            cVO.setSenha(senha.getText());
             cVO.setUsuario(usuario.getText());
+            cVO.setSenha(senha.getText());
             
             
             UsuarioServicos as = servicos.ServicosFactory.getAlteracaoServicos();

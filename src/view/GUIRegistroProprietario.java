@@ -264,8 +264,8 @@ public class GUIRegistroProprietario extends javax.swing.JInternalFrame {
             pVO.setTelefone(telefone.getText());
             pVO.setEmail(email.getText());
             pVO.setCnpj(cnpj.getText());
-            pVO.setSenha(usuario.getText());
             pVO.setUsuario(usuario.getText());
+            pVO.setSenha(senha.getText());
             
             
             ProprietarioServicos as = servicos.ServicosFactory.getProprietarioServicos();

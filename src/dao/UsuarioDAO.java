@@ -56,8 +56,8 @@ public class UsuarioDAO {
             
             PreparedStatement pstm = con.prepareStatement(sql);
             
-            pstm.setString(1, cVO.getSenha());
-            pstm.setString(2, cVO.getUsuario());
+            pstm.setString(1, cVO.getUsuario());
+            pstm.setString(2, cVO.getSenha());
             
             pstm.execute();
             pstm.close();

@@ -4,7 +4,10 @@
  */
 package view;
 
-import com.sun.glass.events.KeyEvent;
+
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.KeyEvent;
 import javax.swing.event.InternalFrameEvent;
 import javax.swing.event.InternalFrameListener;
 
@@ -18,6 +21,7 @@ public class GUIPrincipal extends javax.swing.JFrame implements InternalFrameLis
     private boolean flagGUIRegistroUsuario = false;
     private boolean flagGUIRegistroProprietario = false;
     private boolean flagGUIRegistroQuadra = false;
+    private boolean flagGUIRegistroPartida = false;
     /**
      * Creates new form GUIPrincipal
      */
@@ -44,6 +48,7 @@ public class GUIPrincipal extends javax.swing.JFrame implements InternalFrameLis
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu Principal");
@@ -143,6 +148,19 @@ public class GUIPrincipal extends javax.swing.JFrame implements InternalFrameLis
         });
         s.add(jMenuItem3);
 
+        jMenuItem4.setText("Registro de Partida");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenuItem4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jMenuItem4KeyPressed(evt);
+            }
+        });
+        s.add(jMenuItem4);
+
         jMenuBar1.add(s);
 
         setJMenuBar(jMenuBar1);
@@ -217,6 +235,16 @@ public class GUIPrincipal extends javax.swing.JFrame implements InternalFrameLis
             abrirGUIQuadra();
         }
     }//GEN-LAST:event_jMenuItem3KeyPressed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        abrirGUIRegistroPartida();
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jMenuItem4KeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            abrirGUIRegistroPartida();
+        }
+    }//GEN-LAST:event_jMenuItem4KeyPressed
 
     
     
@@ -304,6 +332,21 @@ public class GUIPrincipal extends javax.swing.JFrame implements InternalFrameLis
         }
     }
     
+    private void abrirGUIRegistroPartida(){
+        
+        if(!flagGUIRegistroPartida){
+            GUIRegistroPartida gp = new GUIRegistroPartida();
+            
+            jdpAreaDeTrabalho.add(gp);
+            
+            gp.setVisible(true);
+            
+            flagGUIRegistroPartida = true;
+            
+            gp.addInternalFrameListener(this);
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -346,6 +389,7 @@ public class GUIPrincipal extends javax.swing.JFrame implements InternalFrameLis
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jbtnProprietario;
     private javax.swing.JMenuItem jbtnUsuario;
     private javax.swing.JDesktopPane jdpAreaDeTrabalho;
@@ -369,7 +413,9 @@ public class GUIPrincipal extends javax.swing.JFrame implements InternalFrameLis
                 flagGUIProprietario = false;
             }  else if (ife.getInternalFrame() instanceof GUIRegistroQuadra){
                 flagGUIRegistroQuadra = false;
-        }
+            } else if (ife.getInternalFrame() instanceof GUIRegistroPartida){
+            flagGUIRegistroPartida = false;
+            }
     }
 
     @Override
