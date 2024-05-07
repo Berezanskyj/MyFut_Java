@@ -10,7 +10,7 @@ package modelo;
  */
 public class LoginVO {
     
-    private int idLogin;
+    private int idLogin, idPerfil;
     private String login, senha;
 
     public int getIdLogin() {
@@ -35,6 +35,14 @@ public class LoginVO {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public int getIdPerfil() {
+        return idPerfil;
+    }
+
+    public void setIdPerfil(int idPerfil) {
+        this.idPerfil = idPerfil;
     }
     
     

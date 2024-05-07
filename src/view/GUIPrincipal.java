@@ -42,13 +42,13 @@ public class GUIPrincipal extends javax.swing.JFrame implements InternalFrameLis
         jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         a = new javax.swing.JMenu();
-        jbtnUsuario = new javax.swing.JMenuItem();
-        jbtnProprietario = new javax.swing.JMenuItem();
+        jmiMenuUsuario = new javax.swing.JMenuItem();
+        jmiMenuProprietario = new javax.swing.JMenuItem();
         s = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        jmiRegistroUsuario = new javax.swing.JMenuItem();
+        jmiRegistroProprietario = new javax.swing.JMenuItem();
+        jmiRegistroQuadra = new javax.swing.JMenuItem();
+        jmiRegistroPartida = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu Principal");
@@ -79,87 +79,93 @@ public class GUIPrincipal extends javax.swing.JFrame implements InternalFrameLis
 
         a.setText("Menu");
 
-        jbtnUsuario.setText("Menu Usuario");
-        jbtnUsuario.addActionListener(new java.awt.event.ActionListener() {
+        jmiMenuUsuario.setText("Menu Usuario");
+        jmiMenuUsuario.setEnabled(false);
+        jmiMenuUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtnUsuarioActionPerformed(evt);
+                jmiMenuUsuarioActionPerformed(evt);
             }
         });
-        jbtnUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+        jmiMenuUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jbtnUsuarioKeyPressed(evt);
+                jmiMenuUsuarioKeyPressed(evt);
             }
         });
-        a.add(jbtnUsuario);
+        a.add(jmiMenuUsuario);
 
-        jbtnProprietario.setText("Menu Proprietario");
-        jbtnProprietario.addActionListener(new java.awt.event.ActionListener() {
+        jmiMenuProprietario.setText("Menu Proprietario");
+        jmiMenuProprietario.setEnabled(false);
+        jmiMenuProprietario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtnProprietarioActionPerformed(evt);
+                jmiMenuProprietarioActionPerformed(evt);
             }
         });
-        jbtnProprietario.addKeyListener(new java.awt.event.KeyAdapter() {
+        jmiMenuProprietario.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jbtnProprietarioKeyPressed(evt);
+                jmiMenuProprietarioKeyPressed(evt);
             }
         });
-        a.add(jbtnProprietario);
+        a.add(jmiMenuProprietario);
 
         jMenuBar1.add(a);
 
         s.setText("Registro");
 
-        jMenuItem1.setText("Registro de Usuario");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        jmiRegistroUsuario.setText("Registro de Usuario");
+        jmiRegistroUsuario.setEnabled(false);
+        jmiRegistroUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                jmiRegistroUsuarioActionPerformed(evt);
             }
         });
-        jMenuItem1.addKeyListener(new java.awt.event.KeyAdapter() {
+        jmiRegistroUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jMenuItem1KeyPressed(evt);
+                jmiRegistroUsuarioKeyPressed(evt);
             }
         });
-        s.add(jMenuItem1);
+        s.add(jmiRegistroUsuario);
 
-        jMenuItem2.setText("Registro de Proprietario");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        jmiRegistroProprietario.setText("Registro de Proprietario");
+        jmiRegistroProprietario.setEnabled(false);
+        jmiRegistroProprietario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                jmiRegistroProprietarioActionPerformed(evt);
             }
         });
-        jMenuItem2.addKeyListener(new java.awt.event.KeyAdapter() {
+        jmiRegistroProprietario.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jMenuItem2KeyPressed(evt);
+                jmiRegistroProprietarioKeyPressed(evt);
             }
         });
-        s.add(jMenuItem2);
+        s.add(jmiRegistroProprietario);
 
-        jMenuItem3.setText("Registro de Quadra");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        jmiRegistroQuadra.setText("Registro de Quadra");
+        jmiRegistroQuadra.setEnabled(false);
+        jmiRegistroQuadra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                jmiRegistroQuadraActionPerformed(evt);
             }
         });
-        jMenuItem3.addKeyListener(new java.awt.event.KeyAdapter() {
+        jmiRegistroQuadra.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jMenuItem3KeyPressed(evt);
+                jmiRegistroQuadraKeyPressed(evt);
             }
         });
-        s.add(jMenuItem3);
+        s.add(jmiRegistroQuadra);
 
-        jMenuItem4.setText("Registro de Partida");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+        jmiRegistroPartida.setText("Registro de Partida");
+        jmiRegistroPartida.setEnabled(false);
+        jmiRegistroPartida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
+                jmiRegistroPartidaActionPerformed(evt);
             }
         });
-        jMenuItem4.addKeyListener(new java.awt.event.KeyAdapter() {
+        jmiRegistroPartida.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jMenuItem4KeyPressed(evt);
+                jmiRegistroPartidaKeyPressed(evt);
             }
         });
-        s.add(jMenuItem4);
+        s.add(jmiRegistroPartida);
 
         jMenuBar1.add(s);
 
@@ -186,65 +192,65 @@ public class GUIPrincipal extends javax.swing.JFrame implements InternalFrameLis
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jbtnUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnUsuarioActionPerformed
+    private void jmiMenuUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiMenuUsuarioActionPerformed
         abrirGUIUsuario();
-    }//GEN-LAST:event_jbtnUsuarioActionPerformed
+    }//GEN-LAST:event_jmiMenuUsuarioActionPerformed
 
-    private void jbtnUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jbtnUsuarioKeyPressed
+    private void jmiMenuUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jmiMenuUsuarioKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             abrirGUIUsuario();
         }
-    }//GEN-LAST:event_jbtnUsuarioKeyPressed
+    }//GEN-LAST:event_jmiMenuUsuarioKeyPressed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void jmiRegistroUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiRegistroUsuarioActionPerformed
        abrirGUIRegistroUsuario();
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_jmiRegistroUsuarioActionPerformed
 
-    private void jMenuItem1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jMenuItem1KeyPressed
+    private void jmiRegistroUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jmiRegistroUsuarioKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             abrirGUIRegistroUsuario();
         }
-    }//GEN-LAST:event_jMenuItem1KeyPressed
+    }//GEN-LAST:event_jmiRegistroUsuarioKeyPressed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void jmiRegistroProprietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiRegistroProprietarioActionPerformed
        abrirGUIRegistroProprietario();
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_jmiRegistroProprietarioActionPerformed
 
-    private void jMenuItem2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jMenuItem2KeyPressed
+    private void jmiRegistroProprietarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jmiRegistroProprietarioKeyPressed
        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             abrirGUIRegistroProprietario();
         }
-    }//GEN-LAST:event_jMenuItem2KeyPressed
+    }//GEN-LAST:event_jmiRegistroProprietarioKeyPressed
 
-    private void jbtnProprietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnProprietarioActionPerformed
+    private void jmiMenuProprietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiMenuProprietarioActionPerformed
         abrirGUIProprietario();
-    }//GEN-LAST:event_jbtnProprietarioActionPerformed
+    }//GEN-LAST:event_jmiMenuProprietarioActionPerformed
 
-    private void jbtnProprietarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jbtnProprietarioKeyPressed
+    private void jmiMenuProprietarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jmiMenuProprietarioKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             abrirGUIProprietario();
         }
-    }//GEN-LAST:event_jbtnProprietarioKeyPressed
+    }//GEN-LAST:event_jmiMenuProprietarioKeyPressed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void jmiRegistroQuadraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiRegistroQuadraActionPerformed
         abrirGUIQuadra();
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }//GEN-LAST:event_jmiRegistroQuadraActionPerformed
 
-    private void jMenuItem3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jMenuItem3KeyPressed
+    private void jmiRegistroQuadraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jmiRegistroQuadraKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             abrirGUIQuadra();
         }
-    }//GEN-LAST:event_jMenuItem3KeyPressed
+    }//GEN-LAST:event_jmiRegistroQuadraKeyPressed
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+    private void jmiRegistroPartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiRegistroPartidaActionPerformed
         abrirGUIRegistroPartida();
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+    }//GEN-LAST:event_jmiRegistroPartidaActionPerformed
 
-    private void jMenuItem4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jMenuItem4KeyPressed
+    private void jmiRegistroPartidaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jmiRegistroPartidaKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             abrirGUIRegistroPartida();
         }
-    }//GEN-LAST:event_jMenuItem4KeyPressed
+    }//GEN-LAST:event_jmiRegistroPartidaKeyPressed
 
     
     
@@ -386,13 +392,13 @@ public class GUIPrincipal extends javax.swing.JFrame implements InternalFrameLis
     private javax.swing.JMenu a;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jbtnProprietario;
-    private javax.swing.JMenuItem jbtnUsuario;
     private javax.swing.JDesktopPane jdpAreaDeTrabalho;
+    public javax.swing.JMenuItem jmiMenuProprietario;
+    public javax.swing.JMenuItem jmiMenuUsuario;
+    public javax.swing.JMenuItem jmiRegistroPartida;
+    public javax.swing.JMenuItem jmiRegistroProprietario;
+    public javax.swing.JMenuItem jmiRegistroQuadra;
+    public javax.swing.JMenuItem jmiRegistroUsuario;
     private javax.swing.JMenu s;
     // End of variables declaration//GEN-END:variables
 

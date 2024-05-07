@@ -5,10 +5,12 @@
  */
 package view;
 
+import dao.LoginDAO;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Vector;
 import javax.swing.JOptionPane;
-import modelo.UsuarioVO;
 import modelo.LoginVO;
-import servicos.UsuarioServicos;
 import servicos.LoginServicos;
 
 /**
@@ -22,6 +24,7 @@ public class GUICadastro extends javax.swing.JFrame {
      */
     public GUICadastro() {
         initComponents();
+        listarPerfis();
     }
 
     /**
@@ -44,6 +47,7 @@ public class GUICadastro extends javax.swing.JFrame {
         jtfSenha = new javax.swing.JPasswordField();
         jcbMostrarSenha = new javax.swing.JCheckBox();
         jButton2 = new javax.swing.JButton();
+        cbxPerfil = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -102,6 +106,8 @@ public class GUICadastro extends javax.swing.JFrame {
             }
         });
 
+        cbxPerfil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione o tipo de perfil" }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -115,17 +121,19 @@ public class GUICadastro extends javax.swing.JFrame {
                         .addComponent(cancela, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(129, 129, 129))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jcbMostrarSenha)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jtfLogin, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jtfSenha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jcbMostrarSenha)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cbxPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jtfLogin)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel8)
+                            .addComponent(jtfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(308, 308, 308))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(231, 231, 231)
+                        .addGap(254, 254, 254)
                         .addComponent(jButton2)
                         .addGap(32, 32, 32))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -151,8 +159,10 @@ public class GUICadastro extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jtfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jcbMostrarSenha)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jcbMostrarSenha)
+                    .addComponent(cbxPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -218,6 +228,28 @@ public class GUICadastro extends javax.swing.JFrame {
             
         GUILogin gl = new GUILogin();
         gl.setVisible(true);
+    }
+    
+    
+    Vector<Integer> idperfil = new Vector<>();
+
+    private void listarPerfis(){
+        
+        try{
+            
+            LoginDAO lDAO = new LoginDAO();
+            
+            ResultSet rs = lDAO.listarPerfis();
+            
+            while(rs.next()){
+                idperfil.addElement(rs.getInt(1));
+                cbxPerfil.addItem(rs.getString(2));
+            }
+            
+        } catch(SQLException se){
+            JOptionPane.showMessageDialog(null, "Erro ao listar perfis! " + se, "Erro!", JOptionPane.ERROR_MESSAGE);
+        }
+        
     }
     
     
@@ -288,6 +320,7 @@ public class GUICadastro extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancela;
+    private javax.swing.JComboBox<String> cbxPerfil;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
