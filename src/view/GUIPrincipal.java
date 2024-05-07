@@ -8,6 +8,7 @@ package view;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
 import javax.swing.event.InternalFrameEvent;
 import javax.swing.event.InternalFrameListener;
 
@@ -40,6 +41,7 @@ public class GUIPrincipal extends javax.swing.JFrame implements InternalFrameLis
 
         jdpAreaDeTrabalho = new javax.swing.JDesktopPane();
         jLabel2 = new javax.swing.JLabel();
+        jbtnSair = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         a = new javax.swing.JMenu();
         jmiMenuUsuario = new javax.swing.JMenuItem();
@@ -58,21 +60,36 @@ public class GUIPrincipal extends javax.swing.JFrame implements InternalFrameLis
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo-removebg 1.png"))); // NOI18N
         jLabel2.setText("jLabel2");
 
+        jbtnSair.setText("Sair");
+        jbtnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnSairActionPerformed(evt);
+            }
+        });
+
         jdpAreaDeTrabalho.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jdpAreaDeTrabalho.setLayer(jbtnSair, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jdpAreaDeTrabalhoLayout = new javax.swing.GroupLayout(jdpAreaDeTrabalho);
         jdpAreaDeTrabalho.setLayout(jdpAreaDeTrabalhoLayout);
         jdpAreaDeTrabalhoLayout.setHorizontalGroup(
             jdpAreaDeTrabalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jdpAreaDeTrabalhoLayout.createSequentialGroup()
+            .addGroup(jdpAreaDeTrabalhoLayout.createSequentialGroup()
                 .addContainerGap(549, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(535, 535, 535))
+                .addGroup(jdpAreaDeTrabalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jdpAreaDeTrabalhoLayout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(535, 535, 535))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jdpAreaDeTrabalhoLayout.createSequentialGroup()
+                        .addComponent(jbtnSair)
+                        .addGap(25, 25, 25))))
         );
         jdpAreaDeTrabalhoLayout.setVerticalGroup(
             jdpAreaDeTrabalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jdpAreaDeTrabalhoLayout.createSequentialGroup()
-                .addGap(103, 103, 103)
+                .addGap(34, 34, 34)
+                .addComponent(jbtnSair)
+                .addGap(46, 46, 46)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(637, Short.MAX_VALUE))
         );
@@ -252,6 +269,13 @@ public class GUIPrincipal extends javax.swing.JFrame implements InternalFrameLis
         }
     }//GEN-LAST:event_jmiRegistroPartidaKeyPressed
 
+    private void jbtnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnSairActionPerformed
+        dispose();
+        
+        GUILogin gl = new GUILogin();
+        gl.setVisible(true);
+    }//GEN-LAST:event_jbtnSairActionPerformed
+
     
     
     private void abrirGUIUsuario() {
@@ -392,6 +416,7 @@ public class GUIPrincipal extends javax.swing.JFrame implements InternalFrameLis
     private javax.swing.JMenu a;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JButton jbtnSair;
     private javax.swing.JDesktopPane jdpAreaDeTrabalho;
     public javax.swing.JMenuItem jmiMenuProprietario;
     public javax.swing.JMenuItem jmiMenuUsuario;
