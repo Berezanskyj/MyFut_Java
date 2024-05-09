@@ -192,8 +192,6 @@ public class GUIMenuQuadras extends javax.swing.JInternalFrame {
         jtfNome.setText("Nome");
 
         jtfQuadraID.setText("ID");
-        jtfQuadraID.setEnabled(false);
-        jtfQuadraID.setFocusable(false);
 
         jtfQuadras.setText("Quadras");
 
@@ -402,8 +400,7 @@ public class GUIMenuQuadras extends javax.swing.JInternalFrame {
             jtfPesquisa.setText("Pesquisar...");
         }
     });
-    
-  
+
 }
     
     private void deletarQuadra(){
@@ -555,21 +552,21 @@ public class GUIMenuQuadras extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton jbtnAlterar;
-    private javax.swing.JButton jbtnConfirmar;
-    private javax.swing.JButton jbtnDeletar;
-    private javax.swing.JButton jbtnLimpar;
-    private javax.swing.JButton jbtnPreencher;
+    public javax.swing.JButton jbtnAlterar;
+    public javax.swing.JButton jbtnConfirmar;
+    public javax.swing.JButton jbtnDeletar;
+    public javax.swing.JButton jbtnLimpar;
+    public javax.swing.JButton jbtnPreencher;
     private javax.swing.JComboBox<String> jcPesquisa;
     private javax.swing.JTable jtQuadra;
-    private javax.swing.JFormattedTextField jtfCNPJ;
-    private javax.swing.JTextField jtfEndereco;
-    private javax.swing.JTextField jtfEstabelecimento;
-    private javax.swing.JTextField jtfMaxJogadores;
-    private javax.swing.JTextField jtfNome;
+    public javax.swing.JFormattedTextField jtfCNPJ;
+    public javax.swing.JTextField jtfEndereco;
+    public javax.swing.JTextField jtfEstabelecimento;
+    public javax.swing.JTextField jtfMaxJogadores;
+    public javax.swing.JTextField jtfNome;
     private javax.swing.JTextField jtfPesquisa;
     private javax.swing.JTextField jtfQuadraID;
-    private javax.swing.JTextField jtfQuadras;
-    private javax.swing.JTextField jtfTelefone;
+    public javax.swing.JTextField jtfQuadras;
+    public javax.swing.JTextField jtfTelefone;
     // End of variables declaration//GEN-END:variables
 }
