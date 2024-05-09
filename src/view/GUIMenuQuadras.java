@@ -406,9 +406,6 @@ public class GUIMenuQuadras extends javax.swing.JInternalFrame {
   
 }
     
-
-
-    
     private void deletarQuadra(){
         try{
             int linha = jtQuadra.getSelectedRow();
