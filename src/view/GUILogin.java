@@ -250,6 +250,8 @@ public class GUILogin extends javax.swing.JFrame {
                     gp.jmiRegistroQuadra.setEnabled(true);
                     gp.jmiRegistroPartida.setFocusable(true);
                     gp.jmiRegistroPartida.setEnabled(true);
+                    gp.jmiQuadra.setFocusable(true);
+                    gp.jmiQuadra.setEnabled(true);
                 }
                 
                     

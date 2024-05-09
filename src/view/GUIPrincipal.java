@@ -19,6 +19,7 @@ import javax.swing.event.InternalFrameListener;
 public class GUIPrincipal extends javax.swing.JFrame implements InternalFrameListener {
     private boolean flagGUIusuario = false;
     private boolean flagGUIProprietario = false;
+    private boolean flagGUIQuadras = false;
     private boolean flagGUIRegistroUsuario = false;
     private boolean flagGUIRegistroProprietario = false;
     private boolean flagGUIRegistroQuadra = false;
@@ -46,6 +47,7 @@ public class GUIPrincipal extends javax.swing.JFrame implements InternalFrameLis
         a = new javax.swing.JMenu();
         jmiMenuUsuario = new javax.swing.JMenuItem();
         jmiMenuProprietario = new javax.swing.JMenuItem();
+        jmiQuadra = new javax.swing.JMenuItem();
         s = new javax.swing.JMenu();
         jmiRegistroUsuario = new javax.swing.JMenuItem();
         jmiRegistroProprietario = new javax.swing.JMenuItem();
@@ -123,6 +125,20 @@ public class GUIPrincipal extends javax.swing.JFrame implements InternalFrameLis
             }
         });
         a.add(jmiMenuProprietario);
+
+        jmiQuadra.setText("Menu Quadras");
+        jmiQuadra.setEnabled(false);
+        jmiQuadra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiQuadraActionPerformed(evt);
+            }
+        });
+        jmiQuadra.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jmiQuadraKeyPressed(evt);
+            }
+        });
+        a.add(jmiQuadra);
 
         jMenuBar1.add(a);
 
@@ -250,12 +266,12 @@ public class GUIPrincipal extends javax.swing.JFrame implements InternalFrameLis
     }//GEN-LAST:event_jmiMenuProprietarioKeyPressed
 
     private void jmiRegistroQuadraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiRegistroQuadraActionPerformed
-        abrirGUIQuadra();
+        abrirGUIRegistroQuadra();
     }//GEN-LAST:event_jmiRegistroQuadraActionPerformed
 
     private void jmiRegistroQuadraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jmiRegistroQuadraKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            abrirGUIQuadra();
+            abrirGUIRegistroQuadra();
         }
     }//GEN-LAST:event_jmiRegistroQuadraKeyPressed
 
@@ -276,6 +292,16 @@ public class GUIPrincipal extends javax.swing.JFrame implements InternalFrameLis
         gl.setVisible(true);
     }//GEN-LAST:event_jbtnSairActionPerformed
 
+    private void jmiQuadraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiQuadraActionPerformed
+        abrirGUIQuadras();
+    }//GEN-LAST:event_jmiQuadraActionPerformed
+
+    private void jmiQuadraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jmiQuadraKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            abrirGUIQuadras();
+        }
+    }//GEN-LAST:event_jmiQuadraKeyPressed
+
     
     
     private void abrirGUIUsuario() {
@@ -294,7 +320,9 @@ public class GUIPrincipal extends javax.swing.JFrame implements InternalFrameLis
              gc.addInternalFrameListener(this);
         }
         
-    }//fecha o método abrirGUIColadorador    
+    }//fecha o método abrirGUIColadorador 
+    
+    
     
     private void abrirGUIProprietario() {
        
@@ -310,6 +338,24 @@ public class GUIPrincipal extends javax.swing.JFrame implements InternalFrameLis
              flagGUIProprietario = true;
              
              gp.addInternalFrameListener(this);
+        }
+        
+    }//fecha o método abrirGUIProprietario    
+    
+    private void abrirGUIQuadras() {
+       
+        if(!flagGUIQuadras){
+            GUIMenuQuadras qmp = new GUIMenuQuadras();
+
+        
+            jdpAreaDeTrabalho.add(qmp);
+
+        
+             qmp.setVisible(true);
+             
+             flagGUIProprietario = true;
+             
+             qmp.addInternalFrameListener(this);
         }
         
     }//fecha o método abrirGUIProprietario    
@@ -345,7 +391,7 @@ public class GUIPrincipal extends javax.swing.JFrame implements InternalFrameLis
         }
     }
     
-    private void abrirGUIQuadra() {
+    private void abrirGUIRegistroQuadra() {
        
         if(!flagGUIRegistroQuadra){
             GUIRegistroQuadra gq = new GUIRegistroQuadra();
@@ -420,6 +466,7 @@ public class GUIPrincipal extends javax.swing.JFrame implements InternalFrameLis
     private javax.swing.JDesktopPane jdpAreaDeTrabalho;
     public javax.swing.JMenuItem jmiMenuProprietario;
     public javax.swing.JMenuItem jmiMenuUsuario;
+    public javax.swing.JMenuItem jmiQuadra;
     public javax.swing.JMenuItem jmiRegistroPartida;
     public javax.swing.JMenuItem jmiRegistroProprietario;
     public javax.swing.JMenuItem jmiRegistroQuadra;
@@ -445,7 +492,9 @@ public class GUIPrincipal extends javax.swing.JFrame implements InternalFrameLis
             }  else if (ife.getInternalFrame() instanceof GUIRegistroQuadra){
                 flagGUIRegistroQuadra = false;
             } else if (ife.getInternalFrame() instanceof GUIRegistroPartida){
-            flagGUIRegistroPartida = false;
+                flagGUIRegistroPartida = false;
+            } else if (ife.getInternalFrame() instanceof GUIRegistroPartida){
+                flagGUIQuadras = false;
             }
     }
 
