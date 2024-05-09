@@ -6,10 +6,11 @@
 package servicos;
 
 import dao.DAOFactory;
-import dao.ProprietarioDAO;
+import dao.QuadraDAO;
 import dao.QuadraDAO;
 import java.sql.SQLException;
-import modelo.ProprietarioVO;
+import java.util.ArrayList;
+import modelo.QuadraVO;
 import modelo.QuadraVO;
 
 /**
@@ -18,7 +19,27 @@ import modelo.QuadraVO;
  */
 public class QuadraServicos {
     public void cadastrarQuadra(QuadraVO qVO) throws SQLException {
-        QuadraDAO cDAO = DAOFactory.getQuadraDAO();
-        cDAO.cadastrarQuadra(qVO);
+        QuadraDAO qDAO = DAOFactory.getQuadraDAO();
+        qDAO.cadastrarQuadra(qVO);
     }//fim do métoso cadastrarProduto
+    
+    public ArrayList<QuadraVO> buscarQuadra() throws SQLException{
+        QuadraDAO qDAO = DAOFactory.getQuadraDAO();
+        return qDAO.buscarQuadra();
+    }//fim do método buscarProduto
+    
+    public ArrayList<QuadraVO> filtrarQuadra(String query) throws SQLException{
+        QuadraDAO qDAO = DAOFactory.getQuadraDAO();
+        return qDAO.filtrarQuadra(query);
+    }//fim do método filtrarProduto
+    
+    public void deletarQuadra( int idquadra) throws SQLException{
+        QuadraDAO qDAO = DAOFactory.getQuadraDAO();
+        qDAO.deletarQuadra(idquadra);
+    }//fim do método deletarProduto
+    
+    public void alterarQuadra(QuadraVO qVO) throws SQLException{
+        QuadraDAO qDAO = DAOFactory.getQuadraDAO();
+        qDAO.alterarQuadra(qVO);
+    }//fim do método alterarProduto
 }

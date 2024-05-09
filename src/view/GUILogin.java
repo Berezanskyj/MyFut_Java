@@ -227,17 +227,32 @@ public class GUILogin extends javax.swing.JFrame {
             if(rs.next() ){
                 //Chamando Tela que desejo abrir
                 GUIPrincipal gp = new GUIPrincipal();
+                GUIMenuQuadras gmq = new GUIMenuQuadras();
                 gp.setVisible(true);
                 
                 dispose();
                 
+                //Usuario
                 if(idperfil.get(cbxPerfil.getSelectedIndex() -1) == 1){
                     gp.jmiRegistroPartida.setFocusable(true);
                     gp.jmiRegistroPartida.setEnabled(true);
-                } else if (idperfil.get(cbxPerfil.getSelectedIndex() -1) == 2){
+                } else if (idperfil.get(cbxPerfil.getSelectedIndex() -1) == 2){ // Proprietario
                     gp.jmiRegistroQuadra.setFocusable(true);
                     gp.jmiRegistroQuadra.setEnabled(true);
-                } else{
+                    gmq.jbtnAlterar.setEnabled(true);
+                    gmq.jbtnAlterar.setFocusable(true);
+                    gmq.jbtnConfirmar.setEnabled(true);
+                    gmq.jbtnConfirmar.setFocusable(true);
+                    gmq.jtfEstabelecimento.setEnabled(true);
+                    gmq.jtfEstabelecimento.setFocusable(true);
+                    gmq.jtfEndereco.setEnabled(true);
+                    gmq.jtfEndereco.setFocusable(true);
+                    gmq.jtfQuadras.setEnabled(true);
+                    gmq.jtfQuadras.setFocusable(true);
+                    gmq.jtfMaxJogadores.setEnabled(true);
+                    gmq.jtfMaxJogadores.setFocusable(true);
+
+                } else{ // ADMIN
                     gp.jmiMenuProprietario.setFocusable(true);
                     gp.jmiMenuProprietario.setEnabled(true);
                     gp.jmiMenuUsuario.setFocusable(true);
@@ -250,6 +265,8 @@ public class GUILogin extends javax.swing.JFrame {
                     gp.jmiRegistroQuadra.setEnabled(true);
                     gp.jmiRegistroPartida.setFocusable(true);
                     gp.jmiRegistroPartida.setEnabled(true);
+                    gp.jmiQuadra.setFocusable(true);
+                    gp.jmiQuadra.setEnabled(true);
                 }
                 
                     
