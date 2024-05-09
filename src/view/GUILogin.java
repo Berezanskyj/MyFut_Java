@@ -8,8 +8,8 @@ import dao.LoginDAO;
 import java.awt.event.KeyEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Vector;
 import javax.swing.JOptionPane;
-import javax.swing.event.InternalFrameEvent;
 import modelo.LoginVO;
 
 /**
@@ -17,14 +17,14 @@ import modelo.LoginVO;
  * @author berez
  */
 public class GUILogin extends javax.swing.JFrame {
-    private boolean flagGUIRegistro = false;
-    
+
     
     /**
      * Creates new form NewJFrame
      */
     public GUILogin() {
         initComponents();
+        listarPerfis();
     }
 
     /**
@@ -48,14 +48,17 @@ public class GUILogin extends javax.swing.JFrame {
         jtfSenha = new javax.swing.JPasswordField();
         jcbMostrarSenha = new javax.swing.JCheckBox();
         jButton1 = new javax.swing.JButton();
+        cbxPerfil = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
-        setUndecorated(true);
+        setFocusTraversalPolicyProvider(true);
         setResizable(false);
 
         jdpAreaDeTrabalho.setBackground(new java.awt.Color(240, 228, 206));
-        jdpAreaDeTrabalho.setEnabled(false);
+        jdpAreaDeTrabalho.setFocusCycleRoot(true);
+        jdpAreaDeTrabalho.setFocusTraversalPolicyProvider(true);
+        jdpAreaDeTrabalho.setInheritsPopupMenu(true);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/malandrinho 1.png"))); // NOI18N
 
@@ -121,6 +124,8 @@ public class GUILogin extends javax.swing.JFrame {
             }
         });
 
+        cbxPerfil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione o tipo de perfil" }));
+
         javax.swing.GroupLayout jdpAreaDeTrabalhoLayout = new javax.swing.GroupLayout(jdpAreaDeTrabalho);
         jdpAreaDeTrabalho.setLayout(jdpAreaDeTrabalhoLayout);
         jdpAreaDeTrabalhoLayout.setHorizontalGroup(
@@ -143,10 +148,14 @@ public class GUILogin extends javax.swing.JFrame {
                                 .addComponent(jLabel4)
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(jdpAreaDeTrabalhoLayout.createSequentialGroup()
-                                    .addComponent(jtfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jdpAreaDeTrabalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(jdpAreaDeTrabalhoLayout.createSequentialGroup()
+                                            .addComponent(jcbMostrarSenha)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(cbxPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jtfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGap(18, 18, 18)
-                                    .addComponent(jbtnRegistro1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jcbMostrarSenha)))
+                                    .addComponent(jbtnRegistro1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1)
                         .addGap(41, 41, 41))))
@@ -168,8 +177,10 @@ public class GUILogin extends javax.swing.JFrame {
                 .addGroup(jdpAreaDeTrabalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbtnRegistro1)
                     .addComponent(jtfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(15, 15, 15)
-                .addComponent(jcbMostrarSenha)
+                .addGap(14, 14, 14)
+                .addGroup(jdpAreaDeTrabalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jcbMostrarSenha)
+                    .addComponent(cbxPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jdpAreaDeTrabalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbtnLogar, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -183,7 +194,9 @@ public class GUILogin extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jdpAreaDeTrabalho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jdpAreaDeTrabalho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,7 +219,7 @@ public class GUILogin extends javax.swing.JFrame {
             LoginVO lVO = new LoginVO();
             lVO.setLogin(jtfLogin.getText() );
             lVO.setSenha(jtfSenha.getText());
-            
+            lVO.setIdPerfil(idperfil.get(cbxPerfil.getSelectedIndex() -1));
             
             LoginDAO lDAO = new LoginDAO();
             ResultSet rs = lDAO.autenticarLogin(lVO);
@@ -217,6 +230,31 @@ public class GUILogin extends javax.swing.JFrame {
                 gp.setVisible(true);
                 
                 dispose();
+                
+                if(idperfil.get(cbxPerfil.getSelectedIndex() -1) == 1){
+                    gp.jmiRegistroPartida.setFocusable(true);
+                    gp.jmiRegistroPartida.setEnabled(true);
+                } else if (idperfil.get(cbxPerfil.getSelectedIndex() -1) == 2){
+                    gp.jmiRegistroQuadra.setFocusable(true);
+                    gp.jmiRegistroQuadra.setEnabled(true);
+                } else{
+                    gp.jmiMenuProprietario.setFocusable(true);
+                    gp.jmiMenuProprietario.setEnabled(true);
+                    gp.jmiMenuUsuario.setFocusable(true);
+                    gp.jmiMenuUsuario.setEnabled(true);
+                    gp.jmiRegistroProprietario.setFocusable(true);
+                    gp.jmiRegistroProprietario.setEnabled(true);
+                    gp.jmiRegistroUsuario.setFocusable(true);
+                    gp.jmiRegistroUsuario.setEnabled(true);
+                    gp.jmiRegistroQuadra.setFocusable(true);
+                    gp.jmiRegistroQuadra.setEnabled(true);
+                    gp.jmiRegistroPartida.setFocusable(true);
+                    gp.jmiRegistroPartida.setEnabled(true);
+                }
+                
+                    
+                    
+                    
             }else{
                 //Enviar mensagem de incorreto
                 JOptionPane.showMessageDialog(null, "Login ou Senha inválidos! ");
@@ -238,6 +276,27 @@ public class GUILogin extends javax.swing.JFrame {
         dispose();
         GUICadastro gr = new GUICadastro();
         gr.setVisible(true);
+    }
+    
+    Vector<Integer> idperfil = new Vector<>();
+    
+    private void listarPerfis(){
+        
+        try{
+            
+            LoginDAO lDAO = new LoginDAO();
+            
+            ResultSet rs = lDAO.listarPerfis();
+            
+            while(rs.next()){
+                idperfil.addElement(rs.getInt(1));
+                cbxPerfil.addItem(rs.getString(2));
+            }
+            
+        } catch(SQLException se){
+            JOptionPane.showMessageDialog(null, "Erro ao listar perfis! " + se, "Erro!", JOptionPane.ERROR_MESSAGE);
+        }
+        
     }
     
     
@@ -308,6 +367,7 @@ public class GUILogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cbxPerfil;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -322,4 +382,6 @@ public class GUILogin extends javax.swing.JFrame {
     private javax.swing.JPasswordField jtfSenha;
     // End of variables declaration//GEN-END:variables
 
+    
+    
 }

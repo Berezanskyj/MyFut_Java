@@ -28,10 +28,11 @@ public class LoginDAO {
         try{
             String sql;
             
-            sql = "select * from login where login=? and senha=?";
+            sql = "select * from login where login=? and senha=? and idperfil=?";
             PreparedStatement pstm = con.prepareStatement(sql);
             pstm.setString(1, lVO.getLogin());
             pstm.setString(2, lVO.getSenha());
+            pstm.setInt(3, lVO.getIdPerfil());
             
             ResultSet rs = pstm.executeQuery();
             return rs;
@@ -47,11 +48,12 @@ public class LoginDAO {
         Connection con = new ConexaoBanco().getConexao();
         
         try{
-            String sql = "INSERT INTO login VALUES (null, ?,?)";
+            String sql = "INSERT INTO login VALUES (null, ?,?,?)";
             
             PreparedStatement pstm = con.prepareStatement(sql);
             pstm.setString(1, lVO.getLogin());
             pstm.setString(2, lVO.getSenha());
+            pstm.setInt(3, lVO.getIdPerfil());
               
             pstm.execute();
             pstm.close();
@@ -63,6 +65,22 @@ public class LoginDAO {
         } finally {
             con.close();
         }
+    }
+    
+    public ResultSet listarPerfis() throws SQLException {
+        
+        Connection con = new ConexaoBanco().getConexao();
+        
+        String sql = "SELECT * from perfil order by nomeperfil";
+        
+        try{
+            PreparedStatement pstm = con.prepareStatement(sql);
+            return pstm.executeQuery();
+            
+        } catch (SQLException se){
+            throw new SQLException("Erro! LoginDAO.ListarPerfis" + se.getMessage());
+        } 
+        
     }
     
 }
