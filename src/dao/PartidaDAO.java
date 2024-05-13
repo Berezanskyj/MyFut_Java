@@ -24,7 +24,7 @@ public class PartidaDAO {
         
         try{
         
-        String sql = "INSERT INTO registro_partida VALUES (null, ?, ?, ?, ?, ?, ?);";
+        String sql = "INSERT INTO registro_partida VALUES (null, ?, ?, ?, ?, ?, ?, ?);";
         
         PreparedStatement pstm = con.prepareStatement(sql);
         
@@ -34,6 +34,7 @@ public class PartidaDAO {
         pstm.setInt(4, pVO.getNum_quadra());
         pstm.setInt(5, pVO.getMax_jogadores());
         pstm.setString(6, pVO.getEndereco_quadra());
+        pstm.setString(7, pVO.getData_partida());
         
         pstm.execute();
         pstm.close();

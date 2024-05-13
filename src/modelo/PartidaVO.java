@@ -17,6 +17,7 @@ public class PartidaVO {
     private int num_quadra;
     private int max_jogadores;
     private String endereco_quadra;
+    private String data_partida;
 
     public int getIdpartida() {
         return idpartida;
@@ -73,6 +74,16 @@ public class PartidaVO {
     public void setEndereco_quadra(String endereco_quadra) {
         this.endereco_quadra = endereco_quadra;
     }
+
+    public String getData_partida() {
+        return data_partida;
+    }
+
+    public void setData_partida(String data_partida) {
+        this.data_partida = data_partida;
+    }
+    
+    
     
     
     
