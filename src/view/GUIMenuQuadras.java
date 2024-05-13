@@ -434,7 +434,7 @@ public class GUIMenuQuadras extends javax.swing.JInternalFrame {
                 
                 String query = null;
                 
-                if (pesquisa.equals("ID")){
+                if(pesquisa.equals("ID")){
                     query = "where idquadra = " + jtfPesquisa.getText();
                 } else if (pesquisa.equals("Nome")){
                     query = "where nome_proprietario like '%" + jtfPesquisa.getText() + "%' ";
