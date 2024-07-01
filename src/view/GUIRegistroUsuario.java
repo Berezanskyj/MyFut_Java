@@ -268,7 +268,7 @@ public class GUIRegistroUsuario extends javax.swing.JInternalFrame {
             cVO.setNome(nome.getText());
             cVO.setTelefone(telefone.getText());
             cVO.setEmail(email.getText());
-            cVO.setCpf(telefone.getText());
+            cVO.setCpf(cpf1.getText());
             cVO.setUsuario(usuario.getText());
             cVO.setSenha(senha.getText());
             cVO.setIdperfil(1);

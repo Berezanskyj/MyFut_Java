@@ -1,0 +1,67 @@
+CREATE DATABASE myfut;
+USE myfut;
+ 
+CREATE TABLE perfil(
+    idperfil INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nomeperfil VARCHAR(50) NOT NULL
+);
+ 
+CREATE TABLE login (
+    idlogin INT NOT NULL AUTO_INCREMENT,
+    login VARCHAR(50) NOT NULL,
+    senha VARCHAR(50) NOT NULL,
+    idperfil INT NOT NULL,
+    PRIMARY KEY (idlogin),
+    FOREIGN KEY (idperfil) REFERENCES perfil(idperfil)
+);
+ 
+CREATE TABLE registro_proprietario(
+    idproprietario INT NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(50) NOT NULL,
+    telefone VARCHAR(20) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    cnpj VARCHAR(25) NOT NULL,
+    senha VARCHAR(50) NOT NULL,
+    usuario VARCHAR(50) NOT NULL,
+    PRIMARY KEY (idproprietario)
+);
+ 
+CREATE TABLE registro_quadra (
+    idquadra INT NOT NULL AUTO_INCREMENT,
+    nome_proprietario VARCHAR(50) NOT NULL,
+    telefone_proprietario VARCHAR(20) NOT NULL,
+    endereco_quadra VARCHAR(50) NOT NULL,
+    cnpj_proprietario VARCHAR(25) NOT NULL,
+    max_jogadores_quadra INT NOT NULL,
+    numero_quadra INT NOT NULL,
+    nome_estabelecimento VARCHAR(50) NOT NULL,
+    PRIMARY KEY (idquadra)
+);
+ 
+CREATE TABLE registro_usuario (
+    idusuario INT NOT NULL AUTO_INCREMENT,
+    nome_usuario VARCHAR(50) NOT NULL,
+    telefone_usuario VARCHAR(25) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    cpf VARCHAR(25) NOT NULL,
+    usuario VARCHAR(50) NOT NULL,
+    senha VARCHAR(50) NOT NULL,
+    PRIMARY KEY (idusuario)
+);
+ 
+CREATE TABLE registro_partida (
+    idpartida INT NOT NULL AUTO_INCREMENT,
+    nome_responsavel VARCHAR(50) NOT NULL,
+    telefone_responsavel VARCHAR(25) NOT NULL,
+    idquadra INT NOT NULL,
+    num_quadra INT NOT NULL,
+    qtd_jogadores INT NOT NULL,
+    endereco_quadra VARCHAR(100) NOT NULL,
+    data_partida VARCHAR(20) NOT NULL,
+    PRIMARY KEY (idpartida)
+);
+ 
+--Inserts para a tabela 'perfil'
+INSERT INTO perfil (idperfil, nomeperfil) VALUES (null, 'usuario');
+INSERT INTO perfil (idperfil, nomeperfil) VALUES (null, 'proprietario');
+INSERT INTO perfil (idperfil, nomeperfil) VALUES (null, 'admin');
