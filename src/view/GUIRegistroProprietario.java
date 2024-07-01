@@ -251,7 +251,7 @@ public class GUIRegistroProprietario extends javax.swing.JInternalFrame {
                     email.getText().isEmpty() ||
                     cnpj.getText().isEmpty() ||
                     usuario.getText().isEmpty() ||
-                    senha.getText().isEmpty()
+                    senha.getText().isEmpty() 
                     ) {
                     JOptionPane.showMessageDialog(
                     null,
@@ -266,6 +266,7 @@ public class GUIRegistroProprietario extends javax.swing.JInternalFrame {
             pVO.setCnpj(cnpj.getText());
             pVO.setUsuario(usuario.getText());
             pVO.setSenha(senha.getText());
+            pVO.setIdperfil(2);
             
             
             ProprietarioServicos as = servicos.ServicosFactory.getProprietarioServicos();

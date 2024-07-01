@@ -52,12 +52,13 @@ public class ProprietarioDAO {
         Connection con = new ConexaoBanco().getConexao();
         
         try{
-            String sql = "INSERT INTO login VALUES (null, ?,?)";
+            String sql = "INSERT INTO login VALUES (null, ?,?, ?)";
             
             PreparedStatement pstm = con.prepareStatement(sql);
 
             pstm.setString(1, pVO.getUsuario());
             pstm.setString(2, pVO.getSenha());
+            pstm.setLong(3, pVO.getIdperfil());
                                    
             
             pstm.execute();

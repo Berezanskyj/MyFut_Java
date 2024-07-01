@@ -201,6 +201,7 @@ public class GUICadastro extends javax.swing.JFrame {
             LoginVO lVO = new LoginVO();
             lVO.setLogin(jtfLogin.getText());
             lVO.setSenha(jtfSenha.getText());
+            lVO.setIdPerfil(idperfil.get(cbxPerfil.getSelectedIndex() -1));
             
             LoginServicos ls = servicos.ServicosFactory.getLoginServicos();
             

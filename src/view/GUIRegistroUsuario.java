@@ -5,6 +5,7 @@
 package view;
 
 
+import java.util.HashSet;
 import javax.swing.JOptionPane;
 import modelo.UsuarioVO;
 import servicos.UsuarioServicos;
@@ -270,6 +271,8 @@ public class GUIRegistroUsuario extends javax.swing.JInternalFrame {
             cVO.setCpf(telefone.getText());
             cVO.setUsuario(usuario.getText());
             cVO.setSenha(senha.getText());
+            cVO.setIdperfil(1);
+                
             
             
             UsuarioServicos as = servicos.ServicosFactory.getAlteracaoServicos();

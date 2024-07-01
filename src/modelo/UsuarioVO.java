@@ -17,6 +17,17 @@ public class UsuarioVO {
     private String cpf;
     private String senha;
     private String usuario;
+    private long idperfil;
+
+    public long getIdperfil() {
+        return idperfil;
+    }
+
+    public void setIdperfil(long idperfil) {
+        this.idperfil = idperfil;
+    }
+    
+    
 
     public long getIdusuario() {
         return idusuario;

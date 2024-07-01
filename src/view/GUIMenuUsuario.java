@@ -20,7 +20,7 @@ public class GUIMenuUsuario extends javax.swing.JInternalFrame {
     
     DefaultTableModel dtm = new DefaultTableModel(
                 new Object[][]{},
-            new Object[]{"ID", "NOME", "TELEFONE", "EMAIl", "CPF", "SENHA"}
+            new Object[]{"ID", "NOME", "TELEFONE", "EMAIl", "CPF","USUARIO", "SENHA"}
     );
     /**
      * Creates new form GUIUsuario
@@ -53,7 +53,7 @@ public class GUIMenuUsuario extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jtEmail = new javax.swing.JTextField();
-        jtSenha = new javax.swing.JTextField();
+        jtUsuario1 = new javax.swing.JTextField();
         jtCpf = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jbtnPreencher = new javax.swing.JButton();
@@ -61,6 +61,8 @@ public class GUIMenuUsuario extends javax.swing.JInternalFrame {
         jbtnAlterar = new javax.swing.JButton();
         jbtnDeletar = new javax.swing.JButton();
         jbtnConfirmar = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        jtSenha = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
@@ -74,26 +76,26 @@ public class GUIMenuUsuario extends javax.swing.JInternalFrame {
 
         jtUsuario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "NOME", "TELEFONE", "E-MAIL", "CPF", "SENHA"
+                "ID", "NOME", "TELEFONE", "E-MAIL", "CPF", "USUARIO", "SENHA"
             }
         ));
         jScrollPane1.setViewportView(jtUsuario);
@@ -118,11 +120,11 @@ public class GUIMenuUsuario extends javax.swing.JInternalFrame {
         jLabel6.setText("CPF");
 
         jLabel7.setForeground(new java.awt.Color(138, 117, 53));
-        jLabel7.setText("SENHA");
+        jLabel7.setText("USUARIO");
 
         jtEmail.setBackground(new java.awt.Color(217, 217, 217));
 
-        jtSenha.setBackground(new java.awt.Color(217, 217, 217));
+        jtUsuario1.setBackground(new java.awt.Color(217, 217, 217));
 
         jtCpf.setBackground(new java.awt.Color(217, 217, 217));
 
@@ -164,6 +166,11 @@ public class GUIMenuUsuario extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel9.setForeground(new java.awt.Color(138, 117, 53));
+        jLabel9.setText("SENHA");
+
+        jtSenha.setBackground(new java.awt.Color(217, 217, 217));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -191,7 +198,9 @@ public class GUIMenuUsuario extends javax.swing.JInternalFrame {
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(jtEmail)
                                         .addComponent(jtCpf, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
-                                        .addComponent(jtSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE))
+                                        .addComponent(jtUsuario1, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
+                                        .addComponent(jtSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
+                                        .addComponent(jLabel9))
                                     .addComponent(jLabel6)
                                     .addComponent(jLabel7))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -227,11 +236,11 @@ public class GUIMenuUsuario extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbtnDeletar)
                     .addComponent(jbtnLimpar))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel3)
@@ -256,8 +265,12 @@ public class GUIMenuUsuario extends javax.swing.JInternalFrame {
                         .addGap(4, 4, 4)
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(40, 40, 40)
+                        .addComponent(jtUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbtnAlterar)
                     .addComponent(jbtnPreencher))
@@ -286,11 +299,13 @@ public class GUIMenuUsuario extends javax.swing.JInternalFrame {
 
     private void jbtnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnLimparActionPerformed
         limparTabela();
+        limparCampos();
     }//GEN-LAST:event_jbtnLimparActionPerformed
 
     private void jbtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnConfirmarActionPerformed
         confirmarAlteracao();
         limparTabela();
+        limparCampos();
         preencherTabelaRegistro();
     }//GEN-LAST:event_jbtnConfirmarActionPerformed
 
@@ -303,6 +318,7 @@ public class GUIMenuUsuario extends javax.swing.JInternalFrame {
     private void jbtnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnDeletarActionPerformed
         deletarUsuario();
         limparTabela();
+        limparCampos();
         preencherTabelaRegistro();
     }//GEN-LAST:event_jbtnDeletarActionPerformed
 
@@ -322,7 +338,8 @@ public class GUIMenuUsuario extends javax.swing.JInternalFrame {
                     String.valueOf(reg.get(i).getTelefone() ),
                     String.valueOf(reg.get(i).getEmail() ),
                     String.valueOf(reg.get(i).getCpf() ),
-                    String.valueOf(reg.get(i).getSenha() ),
+                    String.valueOf(reg.get(i).getUsuario()),
+                    String.valueOf(reg.get(i).getSenha() )
                                 });
             }//end of for
             
@@ -338,7 +355,18 @@ public class GUIMenuUsuario extends javax.swing.JInternalFrame {
         
     private void limparTabela(){
         dtm.setNumRows(0);
+        
     } // end of limpar
+    
+    private void limparCampos(){
+        jtID.setText("");
+        jtNome.setText("");
+        jtTelefone.setText("");
+        jtEmail.setText("");
+        jtCpf.setText("");
+        jtUsuario1.setText("");
+        jtSenha.setText("");
+    }
     
     private void deletarUsuario(){
         try{
@@ -373,7 +401,8 @@ public class GUIMenuUsuario extends javax.swing.JInternalFrame {
             jtTelefone.setText((String) jtUsuario.getValueAt(linha, 2));
             jtEmail.setText((String) jtUsuario.getValueAt(linha, 3));
             jtCpf.setText((String) jtUsuario.getValueAt(linha, 4));
-            jtSenha.setText((String) jtUsuario.getValueAt(linha, 5));
+            jtUsuario1.setText((String) jtUsuario.getValueAt(linha, 5));
+            jtSenha.setText((String) jtUsuario.getValueAt(linha, 6));
         }else{
             JOptionPane.showMessageDialog(
                 null,
@@ -390,6 +419,7 @@ public class GUIMenuUsuario extends javax.swing.JInternalFrame {
                     jtTelefone.getText().isEmpty() ||
                     jtEmail.getText().isEmpty() ||
                     jtCpf.getText().isEmpty() ||
+                    jtUsuario1.getText().isEmpty() ||
                     jtSenha.getText().isEmpty()
                     ) {
                     JOptionPane.showMessageDialog(
@@ -403,6 +433,7 @@ public class GUIMenuUsuario extends javax.swing.JInternalFrame {
                 cVO.setTelefone(jtTelefone.getText());
                 cVO.setEmail(jtEmail.getText());
                 cVO.setCpf(jtCpf.getText());
+                cVO.setUsuario(jtUsuario1.getText());
                 cVO.setSenha(jtSenha.getText());
                                 
                 UsuarioServicos as = ServicosFactory.getAlteracaoServicos();
@@ -431,6 +462,7 @@ public class GUIMenuUsuario extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbtnAlterar;
@@ -445,5 +477,6 @@ public class GUIMenuUsuario extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jtSenha;
     private javax.swing.JTextField jtTelefone;
     private javax.swing.JTable jtUsuario;
+    private javax.swing.JTextField jtUsuario1;
     // End of variables declaration//GEN-END:variables
 }

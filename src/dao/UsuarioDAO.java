@@ -32,8 +32,8 @@ public class UsuarioDAO {
             pstm.setString(2, cVO.getTelefone());
             pstm.setString(3, cVO.getEmail());
             pstm.setString(4, cVO.getCpf());
-            pstm.setString(5, cVO.getSenha());
-            pstm.setString(6, cVO.getUsuario());
+            pstm.setString(5, cVO.getUsuario());
+            pstm.setString(6, cVO.getSenha());
             
             
             pstm.execute();
@@ -52,12 +52,13 @@ public class UsuarioDAO {
         Connection con = new ConexaoBanco().getConexao();
         
         try{
-            String sql = "INSERT INTO login VALUES (null, ?,?)";
+            String sql = "INSERT INTO login VALUES (null, ?,?,?)";
             
             PreparedStatement pstm = con.prepareStatement(sql);
             
             pstm.setString(1, cVO.getUsuario());
             pstm.setString(2, cVO.getSenha());
+            pstm.setLong(3, cVO.getIdperfil());
             
             pstm.execute();
             pstm.close();
@@ -85,10 +86,11 @@ public class UsuarioDAO {
                 UsuarioVO cVO = new UsuarioVO();
                 
                 cVO.setIdusuario(rs.getLong("idusuario"));
-                cVO.setNome(rs.getString("nome"));
-                cVO.setTelefone(rs.getString("telefone"));
+                cVO.setNome(rs.getString("nome_usuario"));
+                cVO.setTelefone(rs.getString("telefone_usuario"));
                 cVO.setEmail(rs.getString("email"));
                 cVO.setCpf(rs.getString("cpf"));
+                cVO.setUsuario(rs.getString("usuario"));
                 cVO.setSenha(rs.getString("senha"));
                                 
                 procura.add(cVO);
@@ -118,10 +120,11 @@ public class UsuarioDAO {
                 UsuarioVO cVO = new UsuarioVO();
                 
                 cVO.setIdusuario(rs.getLong("idusuario"));
-                cVO.setNome(rs.getString("nome"));
-                cVO.setTelefone(rs.getString("telefone"));
+                cVO.setNome(rs.getString("nome_usuario"));
+                cVO.setTelefone(rs.getString("telefone_usuario"));
                 cVO.setEmail(rs.getString("email"));
                 cVO.setCpf(rs.getString("cpf"));
+                cVO.setUsuario(rs.getString("usuario"));
                 cVO.setSenha(rs.getString("senha"));
                 
                 colab.add(cVO);
@@ -161,10 +164,11 @@ public class UsuarioDAO {
         try {
             String sql;
             sql = "Update registro_usuario set "
-                    + "nome = ' " + cVO.getNome() + " ', "
-                    + "telefone = ' " + cVO.getTelefone() + " ', "
+                    + "nome_usuario = ' " + cVO.getNome() + " ', "
+                    + "telefone_usuario = ' " + cVO.getTelefone() + " ', "
                     + "email = ' " + cVO.getEmail() + " ', "
                     + "cpf = ' " + cVO.getCpf() + " ', "
+                    + "usuario = ' " + cVO.getUsuario()+ " ', "
                     + "senha = ' " + cVO.getSenha() + " '"
                     + " where idusuario = " + cVO.getIdusuario() + " ";
             
